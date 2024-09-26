@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:4.0.2-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - my_network
+  app:
+    build: ./
+    ports:
+      - "8080:8080"
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+    env_file: ./.env
+    networks:
+      - my_network
+networks:
+  my_network:

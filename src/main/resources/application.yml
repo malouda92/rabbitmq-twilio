@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application.name: rabbitmq-twilio
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: 5672
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    queue: ${QUEUE_NAME}
+    exchange: ${RABBITMQ_EXHANGE}
+    routing-key: ${RABBITMQ_RK}
+
+messaging.twilio:
+  account-sid: ${ACCOUNT_SID}
+  auth-token: ${AUTH_TOKEN}
+  phone-number: ${PHONE_NUMBER}
