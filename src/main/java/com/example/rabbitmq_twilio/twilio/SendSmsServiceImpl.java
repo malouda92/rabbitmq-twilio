@@ -15,8 +15,8 @@ public class SendSmsServiceImpl implements SendSmsService {
     public Message send(String phoneNumber, String message) {
         Twilio.init(messagingTwilioConf.getAccountSid(), messagingTwilioConf.getAuthToken());
         return Message.creator(
-                        new com.twilio.type.PhoneNumber(messagingTwilioConf.getPhoneNumber()),
                         new com.twilio.type.PhoneNumber(phoneNumber),
+                        new com.twilio.type.PhoneNumber(messagingTwilioConf.getPhoneNumber()),
                         message)
                 .create();
     }
